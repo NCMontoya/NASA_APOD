@@ -231,15 +231,12 @@ const displayPictures = (publicacion, type) => {
                             
                               ${ pictureData['media_type'] == 'image'
                                  ? `<figure class="image is-4by3">
-                                      <img src="${pictureData.url}" alt="Placeholder image">
+                                      <img src="${pictureData.url}" alt="Placeholder image" loading="lazy">
                                     </figure>`
                                  : `<figure>
-                                      <iframe src="${pictureData.url}"></iframe>
+                                      <iframe src="${pictureData.url}" loading="lazy"></iframe>
                                     </figure>`
                               }
-                            <figure class="image is-4by3">
-                                <img src="${pictureData.url}" alt="Placeholder image">
-                            </figure>
 
                         </div>
                         <div class="card-content">
