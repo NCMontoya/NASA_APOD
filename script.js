@@ -171,7 +171,6 @@ const displayPictures = (publicacion) => {
                         <div class="card-image">
                             <figure class="image is-4by3">
                                 <img src="${pictureData.url}" alt="Placeholder image">
-                          
                             </figure>
                         </div>
                         <div class="card-content">
