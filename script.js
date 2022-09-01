@@ -1,4 +1,4 @@
-import {getPictureOfTheDay, getPicture, getData, getPicturesRange, getRandomPictures} from './api.js';
+// import {getPictureOfTheDay, getPicture, getData, getPicturesRange, getRandomPictures} from './api.js';
 
 const BASE_URL = 'https://api.nasa.gov/planetary/apod';
 const API_KEY = 'api_key=t6DwZgp9FbxOvDNJeqXlI8zvZmDudZRyP5vSH4Nu';
@@ -149,29 +149,98 @@ function displayPictures(data) {
   document.getElementById('galeria').appendChild(fragment);
 }
 */
-let resultados =[]
-//fetch(`${BASE_URL}?${API_KEY}`)
-fetch(`https://api.nasa.gov/planetary/apod?api_key=u8Z3MZ6Hcmm1zGtZYe1h3pZ1aEH9gfa0qXhBsLol&start_date=2022-08-25&end_date=2022-08-30`)
-.then((response)=>response.json())
-.then((data)=>{
-  resultados = data;
-  displayPictures(resultados);
-})
+// let resultados =[]
+// //fetch(`${BASE_URL}?${API_KEY}`)
+// fetch(`https://api.nasa.gov/planetary/apod?api_key=u8Z3MZ6Hcmm1zGtZYe1h3pZ1aEH9gfa0qXhBsLol&start_date=2022-08-25&end_date=2022-08-30`)
+// .then((response)=>response.json())
+// .then((data)=>{
+//   resultados = data;
+//   displayPictures(resultados);
+// })
+
+function getPictures(startDate, endDate) {
+  clearGalery();
+  showSpinner();
+
+  fetch(`https://api.nasa.gov/planetary/apod?api_key=u8Z3MZ6Hcmm1zGtZYe1h3pZ1aEH9gfa0qXhBsLol&start_date=${startDate}&end_date=${endDate}`)
+    .then(response => response.json())
+    .then(data => {
+      hideSpinner();
+      displayPictures(data, 'image');
+    })
+    .catch(err => console.error(err));
+}
+
+function getVideos(startDate, endDate) {
+  clearGalery();
+  showSpinner();
+
+  fetch(`https://api.nasa.gov/planetary/apod?api_key=u8Z3MZ6Hcmm1zGtZYe1h3pZ1aEH9gfa0qXhBsLol&start_date=${startDate}&end_date=${endDate}`)
+    .then(response => response.json())
+    .then(data => {
+      hideSpinner();
+      displayPictures(data, 'video');
+    })
+    .catch(err => console.error(err));
+}
+
+function showSpinner() {
+  clearGalery();
+  const spinnerTemplate = document.getElementById('spinner-template').content;
+  const spinner = document.importNode(spinnerTemplate, true);
+  document.body.appendChild(spinner);
+}
+
+function hideSpinner() {
+  const spinner = document.querySelector('body > .spinner-container');
+  document.body.removeChild(spinner);
+}
+
+function clearGalery() {
+  const galery = document.getElementById('galeria');
+  galery.innerHTML = '';
+}
+
+// getVideos('2022-07-25', '2022-08-31');
+getPictures('2022-05-12', '2022-08-20');
 
 
-const displayPictures = (publicacion) => {
+// condicion ? algo que quieres que pase cuando la verdadera : lo que quieres q pase cuando la condicion es falsa
+
+// let a = true ? 5 : 3; => 5
+// let a = false ? 5 : 3; => 3
+
+// medi-type == 'image' ? <img> </img> : <iframe></iframe>
+
+const displayPictures = (publicacion, type) => {
     console.log(publicacion)
 
     document.querySelector("#galeria").innerHTML="";
     
     publicacion.forEach((pictureData) => {
+      if (pictureData['media_type'] !== type) return;
+
       let div = document.createElement("div");
-      div.classList.add("column", "is-3");
+      if (pictureData['media_type'] == 'image') {
+        div.classList.add("column", "is-3");
+      } else {
+        div.classList.add("column", "is-4");
+      }
       div.innerHTML += `<div class="card">
                         <div class="card-image">
+                            
+                              ${ pictureData['media_type'] == 'image'
+                                 ? `<figure class="image is-4by3">
+                                      <img src="${pictureData.url}" alt="Placeholder image">
+                                    </figure>`
+                                 : `<figure>
+                                      <iframe src="${pictureData.url}"></iframe>
+                                    </figure>`
+                              }
                             <figure class="image is-4by3">
                                 <img src="${pictureData.url}" alt="Placeholder image">
                             </figure>
+
                         </div>
                         <div class="card-content">
                             <div class="media">
