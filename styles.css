@@ -239,12 +239,21 @@ iframe {
   /* max-height: unset; */
 }
 
-body {
+/*body {
     color: aliceblue;
     height: 200px;
+    background-size: cover;
     background-image: url("https://www.wallpapertip.com/wmimgs/1-15799_8211-earth-from-space-space-wallpaper-4k-wallpaper.jpg");
-    background-size:cover;
     background-repeat:no-repeat;
     background-position: center center;
   }
+*/
+body { 
+    background-image: url("https://www.wallpapertip.com/wmimgs/1-15799_8211-earth-from-space-space-wallpaper-4k-wallpaper.jpg");
+    background-position: top center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: rgb(7, 6, 6);
+}
 

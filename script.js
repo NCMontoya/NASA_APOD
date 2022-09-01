@@ -237,6 +237,10 @@ const displayPictures = (publicacion, type) => {
                                       <iframe src="${pictureData.url}"></iframe>
                                     </figure>`
                               }
+                            <figure class="image is-4by3">
+                                <img src="${pictureData.url}" alt="Placeholder image">
+                            </figure>
+
                         </div>
                         <div class="card-content">
                             <div class="media">
