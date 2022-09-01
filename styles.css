@@ -107,22 +107,13 @@ h4 {
   padding: 0 5% 0 5%
 }
 
-
-/*
-body {
-  background-color: var(--clr-white);
-}
-*/
-
 /* Spinner */
 
-:root {
+.spinner-container {
   --clr-white: #FFFFFF;
   --clr-light-gray: #D9D9D9;
   --clr-light-blue: #689A92;
-}
 
-.spinner-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -248,12 +239,21 @@ iframe {
     background-position: center center;
   }
 */
-body { 
-    background-image: url("https://www.wallpapertip.com/wmimgs/1-15799_8211-earth-from-space-space-wallpaper-4k-wallpaper.jpg");
-    background-position: top center;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
-    background-size:  cover;
-    background-color: rgb(7, 6, 6);
+body {
+  min-height: 100vh;
+  background-image: url("https://www.wallpapertip.com/wmimgs/1-15799_8211-earth-from-space-space-wallpaper-4k-wallpaper.jpg");
+  background-position: top center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  background-color: rgb(7, 6, 6);
+}
+
+.column {
+  display: flex;
+}
+
+.card {
+  align-self: stretch;
 }
 
