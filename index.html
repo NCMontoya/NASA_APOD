@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NASA_APOD</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/150d0e46e5.js" crossorigin="anonymous"></script>
-    <script defer src="./script.js" type="module"></script>
-  </head>
-  <body>
-    <section class="section">
-      <div class="container" class="is-flex" class="is-mobile">
-        <h1 class="title" style="color:azure">
-          NASA
-        </h1>
-        <p class="subtitle" style="color:azure">
-          ¡Consulta la imagen astronómica del día! 
-        </p>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASA_APOD</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/150d0e46e5.js" crossorigin="anonymous"></script>
+  <script defer src="./script.js" type="module"></script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container" class="is-flex" class="is-mobile">
+      <h1 class="title" style="color:azure">
+        NASA
+      </h1>
+      <p class="subtitle" style="color:azure">
+        ¡Consulta la imagen astronómica del día!
+      </p>
+    </div>
     <nav class="level" style="color:azure">
       <div class="level-left">
         <div class="tabs is-centered" class="is-mobile">
-          <!-- <ul>
+          <ul>
             <li>
               <a style="color:azure">
                 <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
@@ -43,7 +45,7 @@
                 <span>Todos</span>
               </a>
             </li>
-          </ul> -->
+          </ul>
         </div>
       </div>
       <p class="level-item has-text-centered">
@@ -54,7 +56,7 @@
           <div class="select mb-3">
             <select id="selector">
               <option value="una" selected>Busca una sola imagen</option>
-              <option value="muchas" >Busca muchas imagenes</option>
+              <option value="muchas">Busca muchas imagenes</option>
             </select>
           </div>
           <div class="is-flex">
@@ -81,4 +83,5 @@
     </section>
   </template>
 </body>
+
 </html>
