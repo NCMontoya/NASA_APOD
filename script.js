@@ -33,8 +33,6 @@ function clearGalery() {
   galery.innerHTML = '';
 }
 
-getPictures('2022-07-25', '2022-08-31');
-
 const displayPictures = (publicacion) => {
   document.querySelector("#galeria").innerHTML = "";
 
@@ -75,6 +73,8 @@ const displayPictures = (publicacion) => {
     document.querySelector("#galeria").append(div);
   });
 }
+
+getPictures('2022-05-12', '2022-08-20');
 
 const input = document.getElementById('searchTerm');
 const button = document.getElementById('search');
