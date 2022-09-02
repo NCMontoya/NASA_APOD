@@ -58,6 +58,7 @@ function clearGalery() {
   galery.innerHTML = '';
 }
 
+
 getPictures('2022-07-25', '2022-08-31');
 // (async () => {
 //   const data = await getPicturesRange('2022-05-12', '2022-08-20');
@@ -110,6 +111,61 @@ const displayPictures = (publicacion) => {
         </div>
       </div> `
     document.querySelector("#galeria").append(div);
+
+// getVideos('2022-07-25', '2022-08-31');
+getPictures('2022-05-12', '2022-08-20');
+
+
+// condicion ? algo que quieres que pase cuando la verdadera : lo que quieres q pase cuando la condicion es falsa
+
+// let a = true ? 5 : 3; => 5
+// let a = false ? 5 : 3; => 3
+
+// medi-type == 'image' ? <img> </img> : <iframe></iframe>
+
+const displayPictures = (publicacion, type) => {
+    console.log(publicacion)
+
+    document.querySelector("#galeria").innerHTML="";
+    
+    publicacion.forEach((pictureData) => {
+      if (pictureData['media_type'] !== type) return;
+
+      let div = document.createElement("div");
+      if (pictureData['media_type'] == 'image') {
+        div.classList.add("column", "is-3");
+      } else {
+        div.classList.add("column", "is-4");
+      }
+      div.innerHTML += `<div class="card">
+                        <div class="card-image">
+                            
+                              ${ pictureData['media_type'] == 'image'
+                                 ? `<figure class="image is-4by3">
+                                      <img src="${pictureData.url}" alt="Placeholder image" loading="lazy">
+                                    </figure>`
+                                 : `<figure>
+                                      <iframe src="${pictureData.url}" loading="lazy"></iframe>
+                                    </figure>`
+                              }
+
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                <p class="title is-4"><b>${pictureData.title}</b></p>
+                                </div>
+                            </div>
+                        <div class="content">
+                            <p><b>${pictureData.explanation}<b/></p>
+                             <a>${pictureData.copyright} @Nasa</a>
+                            <br>
+                           <time datetime="">Captured: ${pictureData.date}</time>
+                        </div>
+                        </div>
+                    </div> `
+      document.querySelector("#galeria").append(div);
+
   });
 }
 

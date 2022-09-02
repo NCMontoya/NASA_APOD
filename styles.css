@@ -239,6 +239,7 @@ iframe {
     background-position: center center;
   }
 */
+
 body {
   min-height: 100vh;
   background-image: url("https://www.wallpapertip.com/wmimgs/1-15799_8211-earth-from-space-space-wallpaper-4k-wallpaper.jpg");
@@ -255,5 +256,63 @@ body {
 
 .card {
   align-self: stretch;
+
+body { 
+    background-image: url("https://www.wallpapertip.com/wmimgs/1-15799_8211-earth-from-space-space-wallpaper-4k-wallpaper.jpg");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    background-color:black;
+    color: black;
 }
 
+footer{
+	background-color:rgb(17, 17, 60);
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	display: grid;
+	font-size: 13px;
+	align-items: left;
+  background-attachment: fixed;
+
+}
+
+footer .footer-down{
+	background-color:rgb(17, 17, 60);
+	border-top: 1px solid gray;
+	width: 100%;
+    height: 50%;
+	position: bottom;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	font-size: 13px;
+}
+
+footer div ul{
+	margin: 10px;
+	list-style: none;
+	display: flex;
+	padding-left: 0;
+}
+
+footer .footer-up .pais{
+	justify-self: left;
+}
+
+footer .footer-down .footer-left{
+	justify-self: left;
+}
+
+footer .footer-down .footer-right{
+	justify-self: right;
+
+}
+
+footer div ul li a{
+	margin: 10px;
+	color: whitesmoke
+}
